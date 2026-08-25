@@ -1,37 +1,86 @@
-# kamera-spm
+# kamera — Swift Package
 
-Swift Package Manager distribution for [kamera](https://github.com/smileidentity/kamera).
+[![Release](https://img.shields.io/github/v/release/smileidentity/kamera-spm?label=release&logo=swift&logoColor=white&color=success)](https://github.com/smileidentity/kamera-spm/releases/latest)
+[![Snapshot](https://img.shields.io/github/v/release/smileidentity/kamera-spm?include_prereleases&sort=date&label=snapshot&logo=github&logoColor=white&color=blue)](https://github.com/smileidentity/kamera-spm/releases)
+[![iOS](https://img.shields.io/badge/iOS-15.0%2B-blue?logo=apple&logoColor=white)](#requirements)
+[![Swift](https://img.shields.io/badge/Swift-5.9%2B-F05138?logo=swift&logoColor=white)](#requirements)
+[![Xcode](https://img.shields.io/badge/Xcode-16%2B-147EFB?logo=xcode&logoColor=white)](#requirements)
 
-This repository holds **no source**. It is a thin `Package.swift` whose binary targets point at
-xcframework zips attached to this repo's releases. Both the manifest and the releases are produced
-by kamera's `kamera-ios/Scripts/publish_spm.sh` — nothing here is hand-edited, and a manual change
-is overwritten by the next publish.
+Swift Package Manager distribution for **kamera**, the camera engine behind the Smile ID SDKs.
+This repository hosts the `Package.swift` manifest and the pre-built XCFramework binaries; the
+source lives in [smileidentity/kamera](https://github.com/smileidentity/kamera).
 
-## Consuming
+kamera drives the AVFoundation capture pipeline — preview, throttled analysis with
+keep-only-latest backpressure, and still capture with observable mode fallbacks — behind one
+`KameraSession`.
 
-```swift
-.package(url: "https://github.com/smileidentity/kamera-spm", exact: "<version>")
+> **Generated, not hand-edited.** Both this manifest and the releases it points at are produced by
+> kamera's `kamera-ios/Scripts/publish_spm.sh`. A manual edit here is overwritten by the next
+> publish.
+
+## Requirements
+
+- iOS 15.0+
+- Swift 5.9+ (Xcode 16+)
+
+## Installation
+
+### Swift Package Manager
+
+In Xcode, choose **File → Add Package Dependencies…** and enter:
+
+```
+https://github.com/smileidentity/kamera-spm
 ```
 
-Products:
+Or add it to your own `Package.swift`:
 
-| Product | Contents |
-| --- | --- |
-| `Kamera` | the camera stack (AVFoundation only) |
-| `KameraVision` | Vision adapter — separate so non-ML consumers pay zero bytes |
-| `KameraTesting` | replay test kit; test targets and sample apps only, never a release graph |
+```swift
+dependencies: [
+    .package(url: "https://github.com/smileidentity/kamera-spm", from: "1.0.0-beta1")
+]
+```
 
-## Branches
+Then add the `Kamera` product to your target's dependencies.
+
+> **Pre-release builds:** to track the rolling snapshot instead of a tagged release, depend on the
+> `snapshot` branch:
+>
+> ```swift
+> .package(url: "https://github.com/smileidentity/kamera-spm", branch: "snapshot")
+> ```
+
+## Products
+
+| Product | Use it for |
+|---------|------------|
+| `Kamera` | The camera engine — session, preview, frame stream, capture. Start here. |
+| `KameraVision` | Apple Vision analyzer adapter. Separate so non-ML consumers pay zero bytes. |
+| `KameraTesting` | Replay test kit — drives recorded fixtures through the real pipeline. Test targets and sample apps only, never a release graph. |
+
+Binary targets carry no dependency edges of their own, so `KameraVision` and `KameraTesting` each
+pull `Kamera` in through their product definition.
+
+```swift
+import Kamera
+```
+
+## Versioning
+
+kamera releases all four platform packages — Android, iOS, Flutter and React Native — in lockstep
+at a single version, driven by the `VERSION` file in the source repo. A version published here is
+the same version on Maven Central, pub.dev and npm.
 
 | Branch | Holds |
-| --- | --- |
+|--------|-------|
 | `main` | production releases |
 | `snapshot` | snapshots and betas |
 
-Mirrors [`ios-spm`](https://github.com/smileidentity/ios-spm), the same split the v12 iOS SDK uses.
+## Documentation
 
-## Versions
+Integration guides and API documentation are available in the
+[Smile ID documentation](https://docs.usesmileid.com).
 
-Until the first publish runs, the manifest carries placeholder URLs pointing at a `v0.0.0` tag
-that does not exist, and zeroed checksums. Resolving the package before then will fail — by
-design, so an unpublished manifest cannot be mistaken for a usable one.
+## License
+
+Released under the MIT License. See [LICENSE](LICENSE).
