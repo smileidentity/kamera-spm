@@ -7,16 +7,14 @@
 [![Xcode](https://img.shields.io/badge/Xcode-16%2B-147EFB?logo=xcode&logoColor=white)](#requirements)
 
 Swift Package Manager distribution for **kamera**, the camera engine behind the Smile ID SDKs.
-This repository hosts the `Package.swift` manifest and the pre-built XCFramework binaries; the
-source lives in [smileidentity/kamera](https://github.com/smileidentity/kamera).
+This repository hosts the `Package.swift` manifest and the pre-built XCFramework binaries.
 
 kamera drives the AVFoundation capture pipeline — preview, throttled analysis with
 keep-only-latest backpressure, and still capture with observable mode fallbacks — behind one
 `KameraSession`.
 
-> **Generated, not hand-edited.** Both this manifest and the releases it points at are produced by
-> kamera's `kamera-ios/Scripts/publish_spm.sh`. A manual edit here is overwritten by the next
-> publish.
+> **Generated, not hand-edited.** This manifest is regenerated on every release, so a manual
+> change here is replaced by the next one.
 
 ## Requirements
 
@@ -37,7 +35,7 @@ Or add it to your own `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/smileidentity/kamera-spm", from: "1.0.0-beta1")
+    .package(url: "https://github.com/smileidentity/kamera-spm", exact: "1.0.0-beta1")
 ]
 ```
 
@@ -67,9 +65,15 @@ import Kamera
 
 ## Versioning
 
-kamera releases all four platform packages — Android, iOS, Flutter and React Native — in lockstep
-at a single version, driven by the `VERSION` file in the source repo. A version published here is
-the same version on Maven Central, pub.dev and npm.
+kamera ships every platform package at a single version, so a version here is the same version
+published for Android, Flutter and React Native:
+
+| Platform | Coordinate |
+|----------|------------|
+| iOS | this package |
+| Android | `com.usesmileid:kamera` (Maven Central) |
+| Flutter | `kamera_flutter` (pub.dev) |
+| React Native | `@smileid/kamera` (npm) |
 
 | Branch | Holds |
 |--------|-------|
