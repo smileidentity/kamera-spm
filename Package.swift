@@ -1,4 +1,4 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 6.0
 // Generated — do not hand-edit.
 //
 // Every `url:` and `checksum:` below is rewritten on each release to point at that release's

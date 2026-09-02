@@ -3,7 +3,7 @@
 [![Release](https://img.shields.io/github/v/release/smileidentity/kamera-spm?label=release&logo=swift&logoColor=white&color=success)](https://github.com/smileidentity/kamera-spm/releases/latest)
 [![Snapshot](https://img.shields.io/github/v/release/smileidentity/kamera-spm?include_prereleases&sort=date&label=snapshot&logo=github&logoColor=white&color=blue)](https://github.com/smileidentity/kamera-spm/releases)
 [![iOS](https://img.shields.io/badge/iOS-15.0%2B-blue?logo=apple&logoColor=white)](#requirements)
-[![Swift](https://img.shields.io/badge/Swift-5.9%2B-F05138?logo=swift&logoColor=white)](#requirements)
+[![Swift](https://img.shields.io/badge/Swift-6.0%2B-F05138?logo=swift&logoColor=white)](#requirements)
 [![Xcode](https://img.shields.io/badge/Xcode-16%2B-147EFB?logo=xcode&logoColor=white)](#requirements)
 
 Swift Package Manager distribution for **kamera**, the camera engine behind the Smile ID SDKs.
@@ -19,7 +19,7 @@ keep-only-latest backpressure, and still capture with observable mode fallbacks 
 ## Requirements
 
 - iOS 15.0+
-- Swift 5.9+ (Xcode 16+)
+- Swift 6.0+ (Xcode 16+)
 
 ## Installation
 
