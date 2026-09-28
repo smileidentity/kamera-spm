@@ -39,9 +39,10 @@ dependencies: [
 ]
 ```
 
-Pin the release the Release badge shows, and pin it `exact`: the Smile ID iOS SDK and the Flutter and
-React Native SDKs all pin kamera-spm exactly, so an app that carries several of them resolves one
-`Kamera.framework`.
+Pin it `exact`. On its own, pin the release the Release badge shows. In an app that also uses a
+Smile ID SDK (iOS, Flutter or React Native), pin the version that SDK pins, or leave kamera-spm out
+and let the SDK bring it in: the SDKs pin kamera-spm exactly, and SwiftPM resolves one version, so
+any other pin fails to resolve.
 
 Then add the `Kamera` product to your target's dependencies.
 
