@@ -35,9 +35,14 @@ Or add it to your own `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/smileidentity/kamera-spm", exact: "1.0.0-beta1")
+    .package(url: "https://github.com/smileidentity/kamera-spm", exact: "1.0.6")
 ]
 ```
+
+Pin it `exact`. On its own, pin the release the Release badge shows. In an app that also uses a
+Smile ID SDK (iOS, Flutter or React Native), pin the version that SDK pins, or leave kamera-spm out
+and let the SDK bring it in: the SDKs pin kamera-spm exactly, and SwiftPM resolves one version, so
+any other pin fails to resolve.
 
 Then add the `Kamera` product to your target's dependencies.
 
@@ -47,6 +52,9 @@ Then add the `Kamera` product to your target's dependencies.
 > ```swift
 > .package(url: "https://github.com/smileidentity/kamera-spm", branch: "snapshot")
 > ```
+>
+> Each snapshot is also tagged, so one can be pinned `exact` the same way, for example
+> `exact: "1.0.7-SNAPSHOT.13"`; the Snapshot badge shows the newest.
 
 ## Products
 
