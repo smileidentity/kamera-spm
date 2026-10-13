@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 94" width="960" height="94" role="img" aria-labelledby="title desc">
+<title id="title">kamera in four numbers</title>
+<desc id="desc">Android AAR contribution 250 KB or less, held by CI. Zero copies per analysis frame. One frame in flight, newer ones dropped. One contract on four SDKs: Android, iOS, Flutter and React Native.</desc>
+<style>text{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;fill:#9198a1;font-size:13px}.mono{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace}.ink{fill:#e6edf3}.b{font-weight:600}.eyebrow{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;font-size:12px;letter-spacing:.08em;fill:#9198a1}.still{display:none}@media (prefers-reduced-motion:reduce){[class^=m],[class*=' m']{animation:none!important}.moving{display:none}.still{display:inline}}</style>
+<rect x="0.5" y="0.5" width="227" height="93" rx="10" fill="#151b23" stroke="#3d444d"/>
+<text x="16" y="28" text-anchor="start" class="eyebrow">AAR CONTRIBUTION</text>
+<text x="16" y="62" class="ink" style="font-size:26px;font-weight:700">≤ 250 KB</text>
+<text x="16" y="82" text-anchor="start" class="" style="font-size:12px">held there by CI's size gate</text>
+<rect x="244.5" y="0.5" width="227" height="93" rx="10" fill="#151b23" stroke="#3d444d"/>
+<text x="260" y="28" text-anchor="start" class="eyebrow">COPIES PER FRAME</text>
+<text x="260" y="62" class="ink" style="font-size:26px;font-weight:700">0</text>
+<text x="260" y="82" text-anchor="start" class="" style="font-size:12px">the camera's own YUV buffer</text>
+<rect x="488.5" y="0.5" width="227" height="93" rx="10" fill="#151b23" stroke="#3d444d"/>
+<text x="504" y="28" text-anchor="start" class="eyebrow">FRAMES IN FLIGHT</text>
+<text x="504" y="62" class="ink" style="font-size:26px;font-weight:700">1</text>
+<text x="504" y="82" text-anchor="start" class="" style="font-size:12px">newer ones dropped, never queued</text>
+<rect x="732.5" y="0.5" width="227" height="93" rx="10" fill="#151b23" stroke="#3d444d"/>
+<text x="748" y="28" text-anchor="start" class="eyebrow">ONE CONTRACT</text>
+<text x="748" y="62" class="ink" style="font-size:26px;font-weight:700">4 SDKs</text>
+<text x="748" y="82" text-anchor="start" class="" style="font-size:12px">Android · iOS · Flutter · RN</text>
+</svg>

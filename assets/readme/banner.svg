@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 160" width="1200" height="160" role="img" aria-labelledby="title desc">
+<title id="title">kamera</title>
+<desc id="desc">kamera, Smile ID's camera engine: zero-copy frames, honest stills, one contract on four SDKs.</desc>
+<style>.ring{animation:ring 3.2s ease-in-out infinite}@keyframes ring{0%,100%{opacity:.15}45%,60%{opacity:.7}}.live{animation:live 2.4s steps(1) infinite}@keyframes live{0%,70%{opacity:1}71%,100%{opacity:.25}}.scan{animation:scan 2.4s ease-in-out infinite}@keyframes scan{0%{transform:translateY(0);opacity:0}15%,85%{opacity:.7}100%{transform:translateY(84px);opacity:0}}.tl{animation:tl 3.2s ease-in-out infinite}@keyframes tl{0%,30%,100%{transform:translate(0,0)}50%,80%{transform:translate(5px,5px)}}.tr{animation:tr 3.2s ease-in-out infinite}@keyframes tr{0%,30%,100%{transform:translate(0,0)}50%,80%{transform:translate(-5px,5px)}}.bl{animation:bl 3.2s ease-in-out infinite}@keyframes bl{0%,30%,100%{transform:translate(0,0)}50%,80%{transform:translate(5px,-5px)}}.br{animation:br 3.2s ease-in-out infinite}@keyframes br{0%,30%,100%{transform:translate(0,0)}50%,80%{transform:translate(-5px,-5px)}}@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style>
+<defs>
+<linearGradient id="ground" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0B1220"/><stop offset="0.55" stop-color="#101B33"/><stop offset="1" stop-color="#15254A"/></linearGradient>
+<linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2FB8FF"/><stop offset="1" stop-color="#7CF0BD"/></linearGradient>
+<radialGradient id="glow"><stop offset="0" stop-color="#2FB8FF" stop-opacity=".22"/><stop offset="1" stop-color="#2FB8FF" stop-opacity="0"/></radialGradient>
+<pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#FFFFFF"/></pattern>
+<clipPath id="card"><rect width="1200" height="160" rx="16"/></clipPath>
+</defs>
+<g clip-path="url(#card)">
+<rect width="1200" height="160" fill="url(#ground)"/>
+<rect width="1200" height="160" fill="url(#dots)" opacity=".06"/>
+<circle cx="124" cy="82" r="120" fill="url(#glow)"/>
+<circle cx="1076" cy="82" r="120" fill="url(#glow)" opacity=".8"/>
+<rect y="154" width="1200" height="6" fill="url(#accent)"/>
+</g>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<circle class="ring" cx="124" cy="93" r="30" stroke="#2FB8FF" stroke-width="2"/>
+<rect x="72" y="60" width="104" height="66" rx="14" stroke="url(#accent)" stroke-width="4.5"/>
+<path d="M100 60 l8 -12 h32 l8 12" stroke="url(#accent)" stroke-width="4.5"/>
+<circle cx="124" cy="93" r="21" stroke="url(#accent)" stroke-width="4.5"/>
+<path d="M114 96 q10 10 20 0" stroke="#7CF0BD" stroke-width="4"/>
+<circle class="live" cx="160" cy="74" r="4" fill="#7CF0BD" stroke="none"/>
+</g>
+<g font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+<text x="232" y="48" font-size="13" font-weight="700" letter-spacing="3.2" fill="url(#accent)">SMILE ID · CAMERA ENGINE</text>
+<text x="228" y="102" font-size="58" font-weight="800" letter-spacing="0.5" fill="#FFFFFF">kamera</text>
+<text x="232" y="134" font-size="19" font-weight="500" fill="#8DA2C0">Zero-copy frames, honest stills, one contract on four SDKs · Swahili for camera</text>
+</g>
+<g fill="none" stroke-linecap="round">
+<clipPath id="viewfinder"><rect x="1036" y="40" width="80" height="84" rx="4"/></clipPath>
+<circle cx="1076" cy="82" r="24" stroke="url(#accent)" stroke-width="3.5"/>
+<circle cx="1068" cy="76" r="2.2" fill="#7CF0BD" stroke="none"/><circle cx="1084" cy="76" r="2.2" fill="#7CF0BD" stroke="none"/>
+<path d="M1067 88 q9 9 18 0" stroke="#7CF0BD" stroke-width="3"/>
+<g clip-path="url(#viewfinder)"><rect class="scan" x="1036" y="40" width="80" height="2" fill="#7CF0BD" stroke="none"/></g>
+<g stroke="#2FB8FF" stroke-width="3.5">
+<path class="tl" d="M1028 54 v-20 h20"/><path class="tr" d="M1104 34 h20 v20"/>
+<path class="bl" d="M1028 110 v20 h20"/><path class="br" d="M1104 130 h20 v-20"/>
+</g>
+</g>
+</svg>
