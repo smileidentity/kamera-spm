@@ -1,98 +1,83 @@
-# kamera — Swift Package
+# kamera, the Swift package
 
-[![Release](https://img.shields.io/github/v/release/smileidentity/kamera-spm?label=release&logo=swift&logoColor=white&color=success)](https://github.com/smileidentity/kamera-spm/releases/latest)
-[![Snapshot](https://img.shields.io/github/v/release/smileidentity/kamera-spm?include_prereleases&sort=date&label=snapshot&logo=github&logoColor=white&color=blue)](https://github.com/smileidentity/kamera-spm/releases)
-[![iOS](https://img.shields.io/badge/iOS-15.0%2B-blue?logo=apple&logoColor=white)](#requirements)
-[![Swift](https://img.shields.io/badge/Swift-6.0%2B-F05138?logo=swift&logoColor=white)](#requirements)
-[![Xcode](https://img.shields.io/badge/Xcode-16%2B-147EFB?logo=xcode&logoColor=white)](#requirements)
+![kamera — Smile ID's camera engine](assets/readme/banner.svg)
 
-Swift Package Manager distribution for **kamera**, the camera engine behind the Smile ID SDKs.
-This repository hosts the `Package.swift` manifest and the pre-built XCFramework binaries.
+**The Swift Package Manager distribution of kamera, the camera engine behind the Smile ID SDKs.**
+This repository holds the `Package.swift` manifest, and each release carries the xcframeworks it
+points at.
 
-kamera drives the AVFoundation capture pipeline — preview, throttled analysis with
-keep-only-latest backpressure, and still capture with observable mode fallbacks — behind one
-`KameraSession`.
+kamera drives AVFoundation behind one `KameraSession`: preview, a frame stream an analyzer can
+trust, and real stills, labelled with what actually produced them.
 
-> **Generated, not hand-edited.** This manifest is regenerated on every release, so a manual
-> change here is replaced by the next one.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/hero-dark.svg">
+  <img alt="Frames leave the camera every 33 ms, shown 15 times slower. The session gate lets one frame through to the analyzer at a time. Frames that arrive while it is busy are dropped, never queued, and frames shot while focus is settling are skipped. When the analyzer calls close(), the gate opens for the next frame, and only the analyzer's results cross the bridge to Dart or JavaScript." src="assets/readme/hero-light.svg">
+</picture>
 
-## Requirements
+<p align="center"><sub>One frame in flight. A frame that arrives while the analyzer holds one is dropped, never queued, and one shot while focus settles is skipped. <code>close()</code> opens the gate. Only results cross the bridge.</sub></p>
 
-- iOS 15.0+
-- Swift 6.0+ (Xcode 16+)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/facts-dark.svg">
+  <img alt="Android AAR contribution 250 KB or less, held by CI. Zero copies per analysis frame. One frame in flight, newer ones dropped. One contract on four SDKs: Android, iOS, Flutter and React Native." src="assets/readme/facts-light.svg">
+</picture>
 
-## Installation
+## Install
 
-### Swift Package Manager
-
-In Xcode, choose **File → Add Package Dependencies…** and enter:
-
-```
-https://github.com/smileidentity/kamera-spm
-```
-
-Or add it to your own `Package.swift`:
+In Xcode, choose **File → Add Package Dependencies…** and enter
+`https://github.com/smileidentity/kamera-spm`. Or add it to your own `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/smileidentity/kamera-spm", exact: "1.0.6")
+    .package(url: "https://github.com/smileidentity/kamera-spm", exact: "1.1.0")
 ]
 ```
 
-Pin it `exact`. On its own, pin the release the Release badge shows. In an app that also uses a
-Smile ID SDK (iOS, Flutter or React Native), pin the version that SDK pins, or leave kamera-spm out
-and let the SDK bring it in: the SDKs pin kamera-spm exactly, and SwiftPM resolves one version, so
-any other pin fails to resolve.
+Then add the `Kamera` product to your target, and `import Kamera`.
 
-Then add the `Kamera` product to your target's dependencies.
+Pin it `exact`. In an app that also uses a Smile ID SDK (iOS, Flutter or React Native), pin the
+version that SDK pins, or leave kamera-spm out and let the SDK bring it in: the SDKs pin kamera-spm
+exactly, and SwiftPM resolves one version, so any other pin fails to resolve.
 
-> **Pre-release builds:** to track the rolling snapshot instead of a tagged release, depend on the
-> `snapshot` branch:
->
-> ```swift
-> .package(url: "https://github.com/smileidentity/kamera-spm", branch: "snapshot")
-> ```
->
-> Each snapshot is also tagged, so one can be pinned `exact` the same way, for example
-> `exact: "1.0.7-SNAPSHOT.13"`; the Snapshot badge shows the newest.
+> [!TIP]
+> Snapshots are tagged too, so one can be pinned `exact` the same way, for example
+> `exact: "1.1.1-SNAPSHOT.19"`, or followed on the `snapshot` branch:
+> `.package(url: "https://github.com/smileidentity/kamera-spm", branch: "snapshot")`.
+> [Releases](https://github.com/smileidentity/kamera-spm/releases) lists them all.
 
 ## Products
 
 | Product | Use it for |
-|---------|------------|
-| `Kamera` | The camera engine — session, preview, frame stream, capture. Start here. |
-| `KameraVision` | Apple Vision analyzer adapter. Separate so non-ML consumers pay zero bytes. |
-| `KameraTesting` | Replay test kit — drives recorded fixtures through the real pipeline. Test targets and sample apps only, never a release graph. |
+|---|---|
+| `Kamera` | The camera engine: session, preview, frame stream and capture. Start here |
+| `KameraVision` | The Apple Vision analyzer adapter. Separate, so a consumer without ML pays nothing for it |
+| `KameraTesting` | The replay test kit, which drives recorded fixtures through the real pipeline. Test targets and sample apps only, never a release graph |
 
 Binary targets carry no dependency edges of their own, so `KameraVision` and `KameraTesting` each
-pull `Kamera` in through their product definition.
+bring `Kamera` in through their product.
 
-```swift
-import Kamera
-```
+| iOS | Swift tools | Built with | Dependencies |
+|---|---|---|---|
+| 15.0 or later | 6.0 or later | Xcode 26.4 | Apple's frameworks only: no third-party code |
 
-## Versioning
+## One version everywhere
 
-kamera ships every platform package at a single version, so a version here is the same version
-published for Android, Flutter and React Native:
+kamera ships every platform at one version, so a version here is the same release on Android,
+Flutter and React Native.
 
-| Platform | Coordinate |
-|----------|------------|
-| iOS | this package |
-| Android | `com.usesmileid:kamera` (Maven Central) |
-| Flutter | `kamera_flutter` (pub.dev) |
-| React Native | `@smileid/kamera` (npm) |
+| iOS | Android | Flutter | React Native |
+|---|---|---|---|
+| this package | `com.usesmileid:kamera` | `usesmileid_kamera` | `@smileid/kamera` |
 
 | Branch | Holds |
-|--------|-------|
+|---|---|
 | `main` | production releases |
 | `snapshot` | snapshots and betas |
 
 ## Documentation
 
-Integration guides and API documentation are available in the
+Integration guides and API documentation are in the
 [Smile ID documentation](https://docs.usesmileid.com).
 
 ## License
 
-Released under the MIT License. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).
