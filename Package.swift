@@ -24,18 +24,18 @@ let package = Package(
   targets: [
     .binaryTarget(
       name: "Kamera",
-      url: "https://github.com/smileidentity/kamera-spm/releases/download/v1.2.1-SNAPSHOT.32/Kamera.xcframework.zip",
-      checksum: "9ff83b26671c3bc856fa52832a33d4da24a55792b8b21010ebd6ff710de3cd6a"
+      url: "https://github.com/smileidentity/kamera-spm/releases/download/v1.2.1-SNAPSHOT.33/Kamera.xcframework.zip",
+      checksum: "29d754e5b247119f4aae85264f43f76f8c0434fb74c87ffa48d4864de6de88c9"
     ),
     .binaryTarget(
       name: "KameraVision",
-      url: "https://github.com/smileidentity/kamera-spm/releases/download/v1.2.1-SNAPSHOT.32/KameraVision.xcframework.zip",
-      checksum: "8ea1d4c718521273331a534950cbc8bd2ef5d5a11efae127a087905c1c0d587a"
+      url: "https://github.com/smileidentity/kamera-spm/releases/download/v1.2.1-SNAPSHOT.33/KameraVision.xcframework.zip",
+      checksum: "472aa1b7e0518c73969ebcd452b12756c572785e66b5b5ec53ba635c17c5a0a4"
     ),
     .binaryTarget(
       name: "KameraTesting",
-      url: "https://github.com/smileidentity/kamera-spm/releases/download/v1.2.1-SNAPSHOT.32/KameraTesting.xcframework.zip",
-      checksum: "360ce156af8576c56a82b2eb94cb729f080aae8f18494de2b1d9b8599b132b98"
+      url: "https://github.com/smileidentity/kamera-spm/releases/download/v1.2.1-SNAPSHOT.33/KameraTesting.xcframework.zip",
+      checksum: "43ad0bfc00e718e7a63ca79a213f82414290428ad34f7bf9e236b349b3e19e36"
     ),
   ]
 )
