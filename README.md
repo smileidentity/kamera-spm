@@ -22,7 +22,7 @@ kamera-spm out and lets the SDK bring it in.
 | `KameraVision` | the Apple Vision analyzer, optional |
 | `KameraTesting` | test targets and sample apps only |
 
-iOS 15 or later · Swift tools 6.0 · built with Xcode 26.4 · no third-party dependencies
+iOS 15 or later · Swift tools 6.0 · built with Xcode 27.1 · no third-party dependencies
 
 ## Releases
 
